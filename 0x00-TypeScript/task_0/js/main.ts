@@ -38,6 +38,11 @@ for (var k = 0; k < 2; k++) {
     hilera.appendChild(celda);
     tblBody.appendChild(hilera);
   }
+  if (k < 1) {
+    var salto = document.createElement("br");
+    tblBody.appendChild(salto);
+  }
+
 }
 tabla.appendChild(tblBody);
 body.appendChild(tabla);
