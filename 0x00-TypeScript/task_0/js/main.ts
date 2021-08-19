@@ -48,5 +48,3 @@ export class StudentClass implements StudentClassInterface {
     return this.firstName;
   }
 }
-
-console.log(printTeacher("John", "Doe"));
