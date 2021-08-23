@@ -1,16 +1,15 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-
-import BodySection from "../BodySection/BodySection";
-import BodySectionWithMarginBottom from "../BodySection/BodySectionWithMarginBottom";
 import Notifications from "../Notifications/Notifications";
 import Header from "../Header/Header";
+import BodySection from "../BodySection/BodySection";
+import BodySectionWithMarginBottom from "../BodySection/BodySectionWithMarginBottom";
 import Login from "../Login/Login";
 import CourseList from "../CourseList/CourseList";
 import Footer from "../Footer/Footer";
-
-import "./App.css";
+import PropTypes from "prop-types";
 import { getLatestNotification } from "../utils/utils";
+import "./App.css";
+import WithLogging from "../HOC/WithLogging";
 
 const listCourses = [
   { id: 1, name: "ES6", credit: 60 },
