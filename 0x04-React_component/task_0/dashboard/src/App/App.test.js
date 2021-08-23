@@ -1,27 +1,32 @@
-import { shallow } from 'enzyme';
-import App from './App';
+import { shallow } from "enzyme";
+import React from "react";
+import App from "./App";
 
-describe('<App />', () => {
-  it('test that App renders without crashing', () => {
+describe("<App />", () => {
+  it("App renders without crashing", () => {
     const wrapper = shallow(<App />);
-    expect(wrapper.exists());
+    expect(wrapper.exists()).toEqual(true);
   });
-  it('verify that App renders a div with the class App-header', () => {
-    const wrapper = shallow(<App />);
-    wrapper.update();
-    expect(wrapper.find('div.App-header')).toHaveLength(1);
-  });
-  it('verify that App renders a div with the class App-body', () => {
+  it("should contain the Notifications component", () => {
     const wrapper = shallow(<App />);
     wrapper.update();
-    expect(wrapper.find('div.App-body')).toHaveLength(1);
+    expect(wrapper.find("Notifications")).toHaveLength(1);
   });
-  it('verify that App renders a div with the class App-footer', () => {
+  it("should contain the Header component", () => {
     const wrapper = shallow(<App />);
     wrapper.update();
-    expect(wrapper.find('div.App-footer')).toHaveLength(1);
+    expect(wrapper.find("Header")).toHaveLength(1);
   });
-
+  it("should contain the Login component", () => {
+    const wrapper = shallow(<App />);
+    wrapper.update();
+    expect(wrapper.find("Login")).toHaveLength(1);
+  });
+  it("should contain the Footer component", () => {
+    const wrapper = shallow(<App />);
+    wrapper.update();
+    expect(wrapper.find("Footer")).toHaveLength(1);
+  });
   it("CourseList is not displayed with isLoggedIn false by default", () => {
     const wrapper = shallow(<App />);
     wrapper.update();

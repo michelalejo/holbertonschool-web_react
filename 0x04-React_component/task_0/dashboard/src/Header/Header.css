@@ -1,7 +1,11 @@
+:root {
+  --main-color: #e01d3f;
+}
+
 .header {
   display: flex;
   align-items: center;
-  color: var(--primary-color);
+  color: var(--main-color);
   font-size: 20px;
 }
 
