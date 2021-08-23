@@ -1,33 +1,25 @@
-import $ from 'jquery';
-import { debounce } from 'lodash';
+const $ = require("jquery");
+const _ = require("lodash");
+import "../css/main.css";
 
-import '../css/main.css';
+let count = 0;
 
-// HTML
-const body = document.getElementsByTagName('body')[0];
-const div = document.createElement('div');
-const p1 = document.createElement('p');
-const p2 = document.createElement('p');
-const button = document.createElement('button');
-const p3 = document.createElement('p');
-const p4 = document.createElement('p');
+function updateCounter() {
+  count++;
+  $("#count").text(`${count} clicks on the button`);
+}
 
-div.setAttribute('id', 'logo');
-p1.innerHTML = 'Holberton Dashboard';
-p2.innerHTML = 'Dashboard data for the students';
-button.innerHTML = 'Click here to get started';
-p3.setAttribute('id', 'count');
-p4.innerHTML = 'Copyright - Holberton School';
+const $button = $("<button>Click here to get started</button>").on(
+  "click",
+  _.debounce(updateCounter, 500, {
+    leading: true,
+    trailing: false,
+  })
+);
 
-body.append(div, p1, p2, button, p3, p4);
-
-// js
-
-let counter = 0;
-
-const updateCounter = () => {
-  counter++;
-  $('#count').html(`${counter} clicks on the button`);
-};
-
-$('button').on('click', debounce(updateCounter));
+$("body").append("<div id='logo'></div>");
+$("body").append("<p>Holberton Dashboard</p>");
+$("body").append("<p>Dashboard data for the students</p>");
+$("body").append($button);
+$("body").append("<p id='count'></p>");
+$("body").append("<p>Copyright - Holberton School</p>");
